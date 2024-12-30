@@ -2,14 +2,12 @@
 #include <cstdlib>
 #include <stdexcept>
 
-
 const int Fixed::fractionalBits = 8;
 
 Fixed::Fixed(const int inToRawConvert)
 {
 	fixRawValue = inToRawConvert*256;
 }
-
 
 Fixed::Fixed(const float floatToRawConver)
 {
@@ -50,12 +48,10 @@ void	Fixed::setRawBits(int const raw)
 	fixRawValue = raw;
 }
 
-
 int	Fixed::toInt(void)const
 {
 	return (fixRawValue / 256);
 }
-
 
 float	Fixed::toFloat(void)const
 {
@@ -93,7 +89,9 @@ Fixed	Fixed::operator/(const Fixed& other) const
 	{
 		if (other.fixRawValue == 0)
 			throw std::runtime_error("Can't divide by 0. It is a crash");
-		return Fixed(((this->fixRawValue) / other.fixRawValue) * 256, true);
+		float thisVal = this->fixRawValue;
+		float otherVal = other.fixRawValue;
+		return Fixed((int)((thisVal / otherVal) * 256), true);
 	} catch(const std::runtime_error& err)
 	{
 		std::cerr << "Caught an error" << err.what() << std::endl;
@@ -176,7 +174,6 @@ Fixed	Fixed::operator--(int)
 	--(this->fixRawValue);
 	return temp;
 }
-
 
 Fixed&		Fixed::min(Fixed& first, Fixed& second)
 {

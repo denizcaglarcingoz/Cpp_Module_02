@@ -13,5 +13,21 @@ int main( void )
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
+
+	a = 10;
+	std::cout << std::endl << "a: " << a << " b: " << b << std::endl;
+	std::cout << std::endl << "a * b " << a*b << std::endl;
+	std::cout << "a + b: " << a+b << std::endl;
+	std::cout << "a - b: " << a-b << std::endl;
+	std::cout << "a / b: " << a/b << std::endl;
+
+	std::cout << std::endl;
+	if (a < b)
+		std::cout << "a is smaller than b" << std::endl;
+	if (a != b)
+		std::cout << "a is not equal to b" << std::endl;
+	if (a >= b)
+		std::cout << "a is equal or bigger than b" << std::endl;
+
 	return 0;
 }
